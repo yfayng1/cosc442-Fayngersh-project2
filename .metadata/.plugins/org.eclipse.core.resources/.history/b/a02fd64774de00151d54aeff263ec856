@@ -1,0 +1,104 @@
+/**
+ * 
+ */
+package edu.towson.cis.cosc442.project2.vendingmachine;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+/**
+ * @author Fima
+ *
+ */
+public class VendingMachineTest {
+
+	VendingMachine myVendingMachine;
+	VendingMachineItem v1, v2;
+	
+	
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@Before
+	public void setUp() throws Exception {
+		myVendingMachine = new VendingMachine();
+		v1 = new VendingMachineItem("Oreo", 5);
+		v2 = new VendingMachineItem("Dorito", 4);
+	}
+
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	/**
+	 * Test method for {@link edu.towson.cis.cosc442.project2.vendingmachine.VendingMachine#addItem(edu.towson.cis.cosc442.project2.vendingmachine.VendingMachineItem, java.lang.String)}.
+	 * Testing for successfully adding an item to an empty slot of the vending machine.
+	 */
+	@Test
+	public void testAddItem1() {
+		myVendingMachine.addItem(v1, "A");
+		assertNotNull(myVendingMachine.getSlotIndex("A"));
+	}
+
+	/**
+	 * Test method for {@link edu.towson.cis.cosc442.project2.vendingmachine.VendingMachine#addItem(edu.towson.cis.cosc442.project2.vendingmachine.VendingMachineItem, java.lang.String)}.
+	 * Testing for unsuccessfully adding an item to a slot in the vending machine because the slot is occupied.
+	 */
+	@Test
+	public void testAddItem2() {
+		boolean thrown = false;
+		try {
+			myVendingMachine.addItem(v1, "A");
+			myVendingMachine.addItem(v2, "A");
+			} catch (VendingMachineException e) {
+			    thrown = true;
+			  }
+		assertTrue(thrown);
+	}
+	
+	/**
+	 * Test method for {@link edu.towson.cis.cosc442.project2.vendingmachine.VendingMachine#removeItem(java.lang.String)}.
+	 */
+	@Test
+	public void testRemoveItem() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link edu.towson.cis.cosc442.project2.vendingmachine.VendingMachine#insertMoney(double)}.
+	 */
+	@Test
+	public void testInsertMoney() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link edu.towson.cis.cosc442.project2.vendingmachine.VendingMachine#getBalance()}.
+	 */
+	@Test
+	public void testGetBalance() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link edu.towson.cis.cosc442.project2.vendingmachine.VendingMachine#makePurchase(java.lang.String)}.
+	 */
+	@Test
+	public void testMakePurchase() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link edu.towson.cis.cosc442.project2.vendingmachine.VendingMachine#returnChange()}.
+	 */
+	@Test
+	public void testReturnChange() {
+		fail("Not yet implemented");
+	}
+}
